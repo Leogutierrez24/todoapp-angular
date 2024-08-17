@@ -1,0 +1,72 @@
+<div class="container">
+  <h1>Hola este es mi nuevo proyecto.</h1>
+  <h2>{{welcome}}</h2>
+
+  <!-- Antigua estructura For -->
+  <ul>
+    <li *ngFor="let task of tasks()"> <!-- ngFor directiva de controls -->
+      {{ task }}
+    </li>
+  </ul>
+
+  <hr />
+
+  <h2>{{ "Hola".repeat(4) }}</h2>
+  <p>La suma de 3 + 3 es {{ 3 + 3 }}</p>
+  <p>Hola soy {{ name() }}</p>
+  <hr />
+
+  <img [src]="person().avatar" alt="" />
+  <input type="text" [value]="person().name" />
+  <button [disabled]="disabled">Click me</button>
+
+  <hr />
+
+  <button (click)="clickHandler()">click me</button>
+  <button (dblclick)="clickHandler()">double me</button>
+  <p>(change)</p>
+  <input type="number" (keydown)="onChangeInput($event)" />
+  <p>(keydown)</p>
+  <input type="text" [value]="person().name" (keydown)="onKeydownInput($event)" />
+  <hr />
+
+  <h1>Signals</h1>
+  <input type="text" [value]="name()" (keydown)="onChangeInput($event)" />
+  <p>Nombre: {{ name() }}</p>
+
+  <hr />
+  <ul>
+    <p>total: {{ tasks().length }}</p>
+    <li *ngFor="let task of tasks(); index as i">
+      {{ i }} {{ task }}
+    </li>
+  </ul>
+  <hr />
+
+  <div *ngIf="1 !== 1">
+    My content
+  </div>
+  <div *ngIf="name() === 'Leonel'">
+    Soy Leonel
+  </div>
+  <input type="number" [value]="person().age" (change)="changeAge($event)" />
+  <div *ngIf="person().name === 'Leonel' && person().age > 18; else elseBlock">
+    Soy Leonel y soy mayor de edad.
+  </div>
+  <ng-template #elseBlock>
+    Soy leonel y no soy mayor de edad.
+  </ng-template>
+
+  <hr />
+  <input type="text" [value]="person().name" (change)="changeName($event)" />
+  <div [ngSwitch]="person().name">
+    <p *ngSwitchCase="'nicolas'">Yo soy nicolas</p>
+    <p *ngSwitchCase="'julian'">Yo soy julian</p>
+    <p *ngSwitchCase="'ana'">Yo soy ana</p>
+    <p *ngSwitchDefault>Yo soy el valor de default</p>
+  </div>
+  <hr />
+
+  <input type="color" [formControl]="colorCtrl" />
+  <p>color: {{ colorCtrl.value }}</p>
+</div>

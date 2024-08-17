@@ -1,0 +1,69 @@
+.todoapp
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-todo
+{
+  width: 400px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.new-todo::placeholder { font-style: italic; }
+
+.container
+{
+  width: 400px;
+  padding: 10px 0;
+}
+
+li
+{
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.footer
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.filters
+{
+  width: 200px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters > li
+{
+  height: fit-content;
+  margin: 0;
+}
+
+.filters > li > a
+{
+  padding: 5px;
+}
+
+.clear-completed
+{
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.selected
+{
+  border: 1px solid #000;
+  border-radius: 3px;
+}
